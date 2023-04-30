@@ -37,4 +37,5 @@ class Notes() {
             return newNote
         }
     }
+
 }

@@ -70,6 +70,7 @@ class Navigation( ) {
             println("Необходимо ввести число!!!")
             return -1
         }
+
     }
 }
 
