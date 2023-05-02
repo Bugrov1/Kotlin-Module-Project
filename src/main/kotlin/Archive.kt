@@ -1,16 +1,9 @@
 import java.util.*
 
-class Archive(var name:String,) {
+class Archive(var name: String) {
 
-    var notesList:MutableMap<Int,Notes> = mutableMapOf()
-    fun addNoteArchive(note:Notes){
-        var indexNew = notesList.size+1
-        notesList[indexNew] = note
-    }
-    fun addToStorage(storage:MutableMap<Int,Archive >,newArchive: Archive ) {
-        val lastItem = storage.size+1
-        storage[lastItem] = newArchive
-    }
+    var notesList: MutableList<Note> = mutableListOf()
+
     companion object {
         fun create(): Archive {
             println("Введите название архива")
@@ -22,17 +15,17 @@ class Archive(var name:String,) {
         }
     }
 }
-class Notes() {
-    var notesMap: MutableMap<String, String> = mutableMapOf()
+
+class Note(var name: String, var textNote: String) {
+
     companion object {
-        fun create():Notes {
+        fun create(): Note {
             println("Введите имя заметки")
             val input = Scanner(System.`in`)
-            val name =(input.nextLine())
+            val name = (input.nextLine())
             println("Введите текст заметки")
-            val textNote =(input.nextLine())
-            val newNote = Notes()
-            newNote.notesMap=mutableMapOf(name to textNote)
+            val textNote = (input.nextLine())
+            val newNote = Note(name, textNote)
             println("Заметка $name создана")
             return newNote
         }
